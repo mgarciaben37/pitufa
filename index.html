@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pruebas</title>
+    <script src="test.js"></script>
+  </head>
+  <body>
+    <h2>Elevar a la potencia</h2>
+    <form>
+      <label for="ejPotenciaValor">Número:</label>
+      <input
+        type="number"
+        id="ejPotenciaValor"
+        name="ejPotenciaValor"
+      /><br /><br />
+      <label for="ejPotenciaPotencia">Potencia:</label>
+      <input
+        type="number"
+        id="ejPotenciaPotencia"
+        name="ejPotenciaPotencia"
+      /><br /><br />
+      <input type="button" value="Calcular" onclick="elevarA()" />
+    </form>
+    <p>Resultado:</p>
+    <p id="ejPotenciaResult"></p>
+
+    <hr />
+
+    <h2>Tirar dado</h2>
+    <form>
+      <label for="dadoLados">Número lados:</label>
+      <input type="number" id="dadoLados" name="dadoLados" /><br /><br />
+      <input type="button" value="Tirar dado" onclick="tirarDado()" />
+    </form>
+    <p>Resultado:</p>
+    <p id="dadoResult"></p>
+
+    <hr />
+
+    <h2>Adivina el número (0-9)</h2>
+    <form>
+      <label for="adivinaValue">Haz tu apuesta:</label>
+      <input
+        type="number"
+        id="adivinaValue"
+        name="adivinaValue"
+        min="0"
+        max="8"
+      /><br /><br />
+      <input type="button" value="Adivinar" onclick="adivinar()" />
+    </form>
+    <p>Resultado:</p>
+    <p id="advinaResult"></p>
+  </body>
+</html>
