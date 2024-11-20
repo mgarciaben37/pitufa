@@ -35,3 +35,21 @@ function adivinar() {
   }
   document.getElementById("advinaResult").innerHTML = result; // Asigna al elemento html el resultado
 }
+
+function reverseString(value) {
+  let size = value.length;
+  let valorFinal = "";
+  for (let i = size - 1; i >= 0; i--) {
+    valorFinal = valorFinal + value[i];
+  }
+
+  return valorFinal;
+}
+
+function darleLaVuelta() {
+  let valor = document.getElementById("reverseValue").value;
+  console.log(valor);
+  let result = reverseString(valor);
+  console.log(result);
+  document.getElementById("reverseResult").innerHTML = result;
+}

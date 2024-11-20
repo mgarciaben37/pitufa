@@ -4,7 +4,7 @@
     <title>Pruebas</title>
     <script src="test.js"></script>
   </head>
-  <body>
+  <>
     <h2>Elevar a la potencia</h2>
     <form>
       <label for="ejPotenciaValor">Número:</label>
@@ -51,5 +51,16 @@
     </form>
     <p>Resultado:</p>
     <p id="advinaResult"></p>
+
+    <hr/> 
+
+    <h2>Darle la vuelta a un texto</h2>
+    <form>
+      <label for="reverseValue">Tu texto:</label>
+      <input id="reverseValue" name="reverseValue" /><br /><br />
+      <input type="button" value="Ejecutar" onclick="darleLaVuelta()" />
+    </form>
+    <p>Resultado:</p>
+    <p id="reverseResult"></p>
   </body>
 </html>
