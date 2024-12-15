@@ -4,10 +4,10 @@ function print(msg) {
 
 // Elevar a una potencia - función invocada en el click del botón del formulario de potencia
 function elevarA() {
-  var valor = Number(document.getElementById("ejPotenciaValor").value); // Lee el dato introducido por el usuario para el número
-  var potencia = Number(document.getElementById("ejPotenciaPotencia").value); // Lee el dato introducido por el usuario para la potencia
+  var valor = Number(document.querySelector("#ejPotenciaValor").value); // Lee el dato introducido por el usuario para el número
+  var potencia = Number(document.querySelector("#ejPotenciaPotencia").value); // Lee el dato introducido por el usuario para la potencia
   var result = valor ** potencia; // Eleva el 'numero' a la 'potencia'
-  document.getElementById("ejPotenciaResult").innerHTML = result; // Asigna al elemento html el resultado
+  document.querySelector("#ejPotenciaResult").innerHTML = result; // Asigna al elemento html el resultado
 }
 
 // Tirar un dato de n lados - función invocada en el click del botón de tirar un dado
@@ -35,3 +35,60 @@ function adivinar() {
   }
   document.getElementById("advinaResult").innerHTML = result; // Asigna al elemento html el resultado
 }
+
+
+// AÑADIR COMO LISTENER UNA FUNCIÓN EXISTENTE
+// document.querySelector('#buttonElevarPotencia').addEventListener('click',(() => elevarA()));
+
+// AÑADIR COMO LISTENER UN TROZO DE CÓDIGO
+// document.querySelector('#buttonElevarPotencia').addEventListener('click',(() => alert('has clickado el boton')));
+
+// AÑADIR COMO LISTENER UNA FUNCIÓN ANÓNIMA DEFINIDA AHÍ MISMO
+// document.querySelector('#buttonElevarPotencia').addEventListener('click',(function () {
+//   alert('mensaje desde el listener como funcion anonima');
+// }));
+
+
+
+
+
+// EJEMPLO DE CALLBACK
+//Creamos una función que se va a pasar como argumento a otra función distinta
+// function alertComoCallback() {
+//   alert('has ejecutado la función como callback');
+// }
+
+// Esta función recibe como argumento una función que invocará
+// function listenerConCallback (callbackFunction) {
+//   alert("despues de que cierres este alert voy a ejecutar la funcion de callback");
+//   callbackFunction();
+// }
+
+// document.querySelector('#buttonElevarPotencia').addEventListener('click',() => listenerConCallback(alertComoCallback));
+
+
+
+
+
+// EJEMPLO CREAR OBJETOS DESDE FORMULARIO Y GUARDARLOS EN UNA LISTA GLOBAL PARA NO PERDERLOS
+let contactos = []
+
+function crearContacto(){
+  let contacto = {};
+  contacto.name=document.querySelector("#nombreContacto").value;
+  contacto.mobile=document.querySelector("#movil").value;
+  contacto.email=document.querySelector("#email").value;
+ 
+  console.log("objeto creado: ")
+  console.log(contacto);
+  
+  contactos.push(contacto);
+
+  console.log("------ contactos creados ------");
+  for (var i = 0;i<contactos.length;i++) {
+    console.log(contactos[i]);
+  }
+}
+
+
+document.querySelector('#buttonCrearContacto').addEventListener('click',() => crearContacto());
