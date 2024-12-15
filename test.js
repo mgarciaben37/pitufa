@@ -92,3 +92,14 @@ function crearContacto(){
 
 
 document.querySelector('#buttonCrearContacto').addEventListener('click',() => crearContacto());
+
+
+// EJEMPLO ACCESO A LOS ATRIBUTOS DE OBJETOS -> nombre_variable.nombre_atributo
+function consultarContactos() {
+  for (var i = 0;i<contactos.length;i++) {
+    let contacto = contactos[i];
+    alert(`Nombre: ${contacto.name} - Movil: ${contacto.mobile} - Email: ${contacto.email}`);
+  }
+}
+
+document.querySelector('#buttonConsultarContactos').addEventListener('click',() => consultarContactos());
