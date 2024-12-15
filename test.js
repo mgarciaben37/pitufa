@@ -54,14 +54,14 @@ function adivinar() {
 
 // EJEMPLO DE CALLBACK
 //Creamos una función que se va a pasar como argumento a otra función distinta
-// function alertComoCallback() {
-//   alert('has ejecutado la función como callback');
+// function alertComoCallback(value) {
+//   alert(`has ejecutado la función como callback usando como argumento: ${value}`);
 // }
 
 // Esta función recibe como argumento una función que invocará
 // function listenerConCallback (callbackFunction) {
 //   alert("despues de que cierres este alert voy a ejecutar la funcion de callback");
-//   callbackFunction();
+//   callbackFunction("vaaaalor");
 // }
 
 // document.querySelector('#buttonElevarPotencia').addEventListener('click',() => listenerConCallback(alertComoCallback));
