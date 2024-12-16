@@ -18,8 +18,8 @@
         id="ejPotenciaPotencia"
         name="ejPotenciaPotencia"
       /><br /><br />
-      <input id="buttonElevarPotencia" type="button" value="Calcular" onclick="elevarA()" />
-      <!-- <input id="buttonElevarPotencia" type="button" value="Calcular" /> -->
+      <!-- <input id="buttonElevarPotencia" type="button" value="Calcular" onclick="elevarA()" /> -->
+      <button id="buttonElevarPotencia">Calcular</button>
     </form>
     <p>Resultado:</p>
     <p id="ejPotenciaResult"></p>
@@ -56,23 +56,20 @@
   <hr />
 
   <h2>Crear contactos</h2>
-  <form>
+  <form id="contactform">
     <label for="nombreContacto">Nombre:</label>
     <input
       type="string"
-      id="nombreContacto"
       name="nombreContacto"
     /><br /><br />
     <label for="movil">Movil:</label>
     <input
       type="string"
-      id="movil"
       name="movil"
     /><br /><br />
     <label for="email">Email:</label>
     <input
       type="string"
-      id="email"
       name="email"
     /><br /><br />
     <input id="buttonCrearContacto" type="button" value="Crear contacto" />

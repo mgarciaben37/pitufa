@@ -4,9 +4,9 @@ function print(msg) {
 
 // Elevar a una potencia - función invocada en el click del botón del formulario de potencia
 function elevarA() {
-  var valor = Number(document.querySelector("#ejPotenciaValor").value); // Lee el dato introducido por el usuario para el número
-  var potencia = Number(document.querySelector("#ejPotenciaPotencia").value); // Lee el dato introducido por el usuario para la potencia
-  var result = valor ** potencia; // Eleva el 'numero' a la 'potencia'
+  let valor = Number(document.querySelector("#ejPotenciaValor").value); // Lee el dato introducido por el usuario para el número
+  let potencia = Number(document.querySelector("#ejPotenciaPotencia").value); // Lee el dato introducido por el usuario para la potencia
+  let result = valor ** potencia; // Eleva el 'numero' a la 'potencia'
   document.querySelector("#ejPotenciaResult").innerHTML = result; // Asigna al elemento html el resultado
 }
 
@@ -36,70 +36,80 @@ function adivinar() {
   document.getElementById("advinaResult").innerHTML = result; // Asigna al elemento html el resultado
 }
 
-
 // AÑADIR COMO LISTENER UNA FUNCIÓN EXISTENTE
 // document.querySelector('#buttonElevarPotencia').addEventListener('click',(() => elevarA()));
 
 // AÑADIR COMO LISTENER UN TROZO DE CÓDIGO
-// document.querySelector('#buttonElevarPotencia').addEventListener('click',(() => alert('has clickado el boton')));
+// document.querySelector('#buttonElevarPotencia').addEventListener('click',((evento) => {console.log(`Se ha producido un evento de tipo: ${evento.type} y target ${evento.target}`)}));
 
 // AÑADIR COMO LISTENER UNA FUNCIÓN ANÓNIMA DEFINIDA AHÍ MISMO
 // document.querySelector('#buttonElevarPotencia').addEventListener('click',(function () {
 //   alert('mensaje desde el listener como funcion anonima');
 // }));
 
-
-
-
-
 // EJEMPLO DE CALLBACK
 //Creamos una función que se va a pasar como argumento a otra función distinta
-// function alertComoCallback(value) {
-//   alert(`has ejecutado la función como callback usando como argumento: ${value}`);
-// }
+function alertComoCallback(value) {
+  alert(
+    `has ejecutado la función como callback usando como argumento: ${value}`
+  );
+}
 
-// Esta función recibe como argumento una función que invocará
-// function listenerConCallback (callbackFunction) {
-//   alert("despues de que cierres este alert voy a ejecutar la funcion de callback");
-//   callbackFunction("vaaaalor");
-// }
+function segundaFuncionCallback() {
+  alert(`has ejecutado la segunda funcion de callback`);
+}
 
-// document.querySelector('#buttonElevarPotencia').addEventListener('click',() => listenerConCallback(alertComoCallback));
+// Esta función recibe como argumento una función que invocará a modo de callback
+function listenerConCallback(callbackFunction, callback2) {
+  alert(
+    "despues de que cierres este alert voy a ejecutar la funcion de callback"
+  );
+  callbackFunction("vaaaalor");
+  callback2();
+}
 
-
-
-
+document
+  .querySelector("#buttonElevarPotencia")
+  .addEventListener("click", () =>
+    listenerConCallback(alertComoCallback, segundaFuncionCallback)
+  );
 
 // EJEMPLO CREAR OBJETOS DESDE FORMULARIO Y GUARDARLOS EN UNA LISTA GLOBAL PARA NO PERDERLOS
-let contactos = []
+let listaContactos = [];
 
-function crearContacto(){
+function crearContacto() {
+  let formulario = new FormData(document.querySelector("#contactform")); // Creamos un objeto FormData a partir del elemento <form> del html
   let contacto = {};
-  contacto.name=document.querySelector("#nombreContacto").value;
-  contacto.mobile=document.querySelector("#movil").value;
-  contacto.email=document.querySelector("#email").value;
- 
-  console.log("objeto creado: ")
+  contacto.name = formulario.get("nombreContacto");
+  contacto.mobile = formulario.get("nombreContacto");
+  contacto.email = formulario.get("nombreContacto");
+  contacto.nombre2pitufa = formulario.get("nombreContacto");
+
+  console.log("objeto creado: ");
   console.log(contacto);
-  
-  contactos.push(contacto);
+
+  listaContactos.push(contacto);
 
   console.log("------ contactos creados ------");
-  for (var i = 0;i<contactos.length;i++) {
-    console.log(contactos[i]);
+  for (var i = 0; i < listaContactos.length; i++) {
+    console.log(listaContactos[i]);
   }
 }
 
-
-document.querySelector('#buttonCrearContacto').addEventListener('click',() => crearContacto());
-
+document
+  .querySelector("#buttonCrearContacto")
+  .addEventListener("click", () => crearContacto());
 
 // EJEMPLO ACCESO A LOS ATRIBUTOS DE OBJETOS -> nombre_variable.nombre_atributo
 function consultarContactos() {
-  for (var i = 0;i<contactos.length;i++) {
-    let contacto = contactos[i];
-    alert(`Nombre: ${contacto.name} - Movil: ${contacto.mobile} - Email: ${contacto.email}`);
+  for (var i = 0; i < listaContactos.length; i++) {
+    let contacto = listaContactos[i];
+    alert(
+      `Nombre: ${contacto.name} - Movil: ${contacto.mobile} - Email: ${contacto.email}`
+    );
   }
 }
 
-document.querySelector('#buttonConsultarContactos').addEventListener('click',() => consultarContactos());
+document
+  .querySelector("#buttonConsultarContactos")
+  .addEventListener("click", () => consultarContactos());
