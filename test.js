@@ -81,8 +81,8 @@ function crearContacto() {
   let formulario = new FormData(document.querySelector("#contactform")); // Creamos un objeto FormData a partir del elemento <form> del html
   let contacto = {};
   contacto.name = formulario.get("nombreContacto");
-  contacto.mobile = formulario.get("nombreContacto");
-  contacto.email = formulario.get("nombreContacto");
+  contacto.mobile = formulario.get("movil");
+  contacto.email = formulario.get("email");
   contacto.nombre2pitufa = formulario.get("nombreContacto");
 
   console.log("objeto creado: ");
