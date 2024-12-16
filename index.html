@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Pruebas</title>
-    <script src="test.js"></script>
   </head>
   <>
     <h2>Elevar a la potencia</h2>
@@ -19,7 +18,8 @@
         id="ejPotenciaPotencia"
         name="ejPotenciaPotencia"
       /><br /><br />
-      <input type="button" value="Calcular" onclick="elevarA()" />
+      <!-- <input id="buttonElevarPotencia" type="button" value="Calcular" onclick="elevarA()" /> -->
+      <button id="buttonElevarPotencia">Calcular</button>
     </form>
     <p>Resultado:</p>
     <p id="ejPotenciaResult"></p>
@@ -63,4 +63,31 @@
     <p>Resultado:</p>
     <p id="reverseResult"></p>
   </body>
+
+  <hr />
+
+  <h2>Crear contactos</h2>
+  <form id="contactform">
+    <label for="nombreContacto">Nombre:</label>
+    <input
+      type="string"
+      name="nombreContacto"
+    /><br /><br />
+    <label for="movil">Movil:</label>
+    <input
+      type="string"
+      name="movil"
+    /><br /><br />
+    <label for="email">Email:</label>
+    <input
+      type="string"
+      name="email"
+    /><br /><br />
+    <input id="buttonCrearContacto" type="button" value="Crear contacto" />
+    <input id="buttonConsultarContactos" type="button" value="Consultar contactos" />
+  </form>
+</body>
+
+  <footer><script src="test.js"></script></footer>
+
 </html>
