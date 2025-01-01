@@ -37,7 +37,8 @@ function adivinar() {
 }
 
 // AÑADIR COMO LISTENER UNA FUNCIÓN EXISTENTE
-// document.querySelector('#buttonElevarPotencia').addEventListener('click',(() => elevarA()));
+document.querySelector('#buttonElevarPotencia').addEventListener('click',(() => elevarA()));
+// document.querySelector('#buttonElevarPotencia').addEventListener('click',elevarA);
 
 // AÑADIR COMO LISTENER UN TROZO DE CÓDIGO
 // document.querySelector('#buttonElevarPotencia').addEventListener('click',((evento) => {console.log(`Se ha producido un evento de tipo: ${evento.type} y target ${evento.target}`)}));
@@ -46,6 +47,9 @@ function adivinar() {
 // document.querySelector('#buttonElevarPotencia').addEventListener('click',(function () {
 //   alert('mensaje desde el listener como funcion anonima');
 // }));
+
+
+
 
 // EJEMPLO DE CALLBACK
 //Creamos una función que se va a pasar como argumento a otra función distinta
@@ -68,11 +72,11 @@ function listenerConCallback(callbackFunction, callback2) {
   callback2();
 }
 
-document
-  .querySelector("#buttonElevarPotencia")
-  .addEventListener("click", () =>
-    listenerConCallback(alertComoCallback, segundaFuncionCallback)
-  );
+// document
+//   .querySelector("#buttonElevarPotencia")
+//   .addEventListener("click", () =>
+//     listenerConCallback(alertComoCallback, segundaFuncionCallback)
+//   );
 
 // EJEMPLO CREAR OBJETOS DESDE FORMULARIO Y GUARDARLOS EN UNA LISTA GLOBAL PARA NO PERDERLOS
 let listaContactos = [];
